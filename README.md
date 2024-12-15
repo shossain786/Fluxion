@@ -71,6 +71,8 @@ Ensure the following are installed:
 #### 1. Add to Maven Project
 Fluxion can be hosted on **Maven Central** or **JitPack**. Add the following to your project's `pom.xml`:
 
+[![](https://jitpack.io/v/shossain786/fluxion.svg)](https://jitpack.io/#shossain786/fluxion)
+
 ```xml
 <repositories>
     <repository>
