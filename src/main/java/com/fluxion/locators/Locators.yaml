@@ -1,4 +1,0 @@
-LoginPage:
-  usernameField: {type: "id", value: "username"}
-  passwordField: {type: "id", value: "password"}
-  loginButton: {type: "css", value: "button[type='submit']"}

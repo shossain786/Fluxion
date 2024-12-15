@@ -18,33 +18,38 @@ The project is structured as follows:
 
 ```
 fluxion
+├── config
+|   |──application.yaml
 ├── src
 │   ├── main
-│   │   └── java
-│   │       └── com.fluxion.core
-│   │           ├── ConfigManager.java
-│   │           ├── DriverManager.java
-│   │           ├── LoggerManager.java
-│   │           ├── ElementHandler.java
-│   │           └── FluentWaitHandler.java
-│   ├── test
+│   │   ├── java
+│   │   │   └── com.fluxion
+|   |   |         └──  config
+|   |   |         |     ├──ConfigLoader       # Loads configurations dynamically
+|   |   |         └── exceptions
+|   |   |         └── helpers
+|   |   |         └── locators
+|   |   |         └── reports
+|   |   |         
+│   │   ├── resources
+│   │       ├── config
+│   │       │   └── application.yaml      # Configuration file
+│   │       └── logging
+│   │           └── log4j2.xml            # Log4j2 configuration
+│   └── test
 │       ├── java
-│       │   └── com.fluxion
-│       │           ├── core
-│       │           │   └── BaseTest.java
-│       │           ├── runners
-│       │           │   └── CucumberTestRunner.java
-│       │           ├── stepdefinitions
-│       │           │   └── LoginSteps.java
-│       │           ├── hooks
-│       │           │   └── CucumberHooks.java
+│             └── com.fluxion
+│                 |__core
+|                    └── BaseTest.java          # Handles test setup and teardown
+│                    ├── DriverManager.java     # Manages WebDriver instances
+│                    ├── SeleniumActions.java   # Manages Selenium Actions
 │       ├── resources
-│           ├── features
-│           │   └── login.feature
 │           └── testdata
-│               └── test-config.yaml
-├── pom.xml
-└── README.md
+│               └── test-config.yaml       # Example test data file
+├── pom.xml                                # Maven project file
+├── README.md                              # Project documentation
+└── LICENSE                                # Project license
+
 ```
 
 ---
@@ -132,14 +137,15 @@ public class SampleTest extends BaseTest {
 ```
 
 ### **2. Use Configurations Dynamically**
+
 ```java
-import com.fluxion.core.ConfigManager;
+import com.fluxion.config.ConfigLoader;
 
 public class SampleConfigUsage {
-    public void printBaseUrl() {
-        String baseUrl = ConfigManager.getProperty("baseUrl");
-        System.out.println("Base URL: " + baseUrl);
-    }
+   public void printBaseUrl() {
+      String baseUrl = ConfigLoader.getProperty("baseUrl");
+      System.out.println("Base URL: " + baseUrl);
+   }
 }
 ```
 
