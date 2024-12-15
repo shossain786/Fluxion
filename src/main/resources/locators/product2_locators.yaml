@@ -1,0 +1,4 @@
+LoginPage:
+  username: "id=user_input"
+  password: "id=pass_input"
+  loginButton: "css=button#submit_login"

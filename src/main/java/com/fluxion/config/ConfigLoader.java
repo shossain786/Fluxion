@@ -1,11 +1,11 @@
-package com.fluxion.core;
+package com.fluxion.config;
 
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
 import java.util.Map;
 
-public class ConfigManager {
+public class ConfigLoader {
 
     private static Map<String, String> config;
 
@@ -16,7 +16,7 @@ public class ConfigManager {
     private static void loadConfig() {
         // Explicitly use SnakeYAML's Yaml class
         Yaml yaml = new org.yaml.snakeyaml.Yaml();
-        try (InputStream inputStream = ConfigManager.class.getClassLoader().getResourceAsStream("config/application.yaml")) {
+        try (InputStream inputStream = ConfigLoader.class.getClassLoader().getResourceAsStream("config/application.yaml")) {
             if (inputStream == null) {
                 throw new RuntimeException("Configuration file not found");
             }

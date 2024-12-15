@@ -1,0 +1,19 @@
+browser: chrome
+common:
+  timeout:
+    implicit: 10
+    explicit: 30
+
+environments:
+  dev:
+    url: https://dev.example.com
+  beta:
+    url: https://beta.example.com
+  alpha:
+    url: https://alpha.example.com
+  prod:
+    url: https://prod.example.com
+  cvt:
+    url: https://cvt.example.com
+
+defaultEnvironment: dev
