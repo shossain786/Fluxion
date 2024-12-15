@@ -1,22 +1,16 @@
-# **Fluxion Framework**
-### A Complete Automation Solution
+# Fluxion Framework
 
-Fluxion is a Selenium-based, end-to-end test automation framework designed to simplify and enhance the automation experience. It provides reusable components, dynamic configurations, and seamless integration into other projects. Fluxion focuses on delivering a "wow" experience to testers by eliminating common challenges in test automation.
+Fluxion is a robust and flexible automation framework designed to streamline end-to-end test automation. It supports seamless integration with various automation tools and can be configured as a dependency for other test projects. With a focus on user experience and simplicity, Fluxion aims to redefine test automation practices.
 
----
+## Features
 
-## **Key Features**
-
-- **Reusable Library**: Designed as a standalone library, easily integrated into test automation projects as a JAR file or dependency.
-- **Dynamic Configuration**: Load all configurations dynamically using `application.yaml`.
-- **Advanced Driver Management**: Centralized WebDriver management with support for multiple browsers.
-- **Custom Logging**: Built-in Log4j2-based logging for debugging and reporting.
-- **Smart Element Handling**: Utility methods for handling web elements efficiently without relying on Page Object Models.
-- **Fluent Wait**: Encapsulation of Selenium FluentWait for flexible and dynamic waits.
-- **Extensible Design**: Ready for custom extensions, making it adaptable to your testing needs.
-- **YAML-Based Data Storage**: Store and retrieve test data, configurations, and other resources in YAML format.
-
----
+- **Multi-Browser Support**: Easily configurable for Chrome, Firefox, Edge, and other browsers.
+- **Dynamic Driver Management**: Leverages DriverManager for efficient WebDriver handling.
+- **Configuration Handling**: Centralized configuration management using YAML.
+- **Logging**: Integrated Log4j2 for detailed test execution logs.
+- **BDD Support**: Compatible with Cucumber for Behavior-Driven Development.
+- **Utility Tools**: Includes reusable utilities like FluentWait and ElementHandler.
+- **Extendable**: Can be added as a dependency for test projects to provide automation solutions.
 
 ## **Project Structure**
 
@@ -26,33 +20,45 @@ The project is structured as follows:
 fluxion
 ├── src
 │   ├── main
-│   │   ├── java
-│   │   │   └── com.fluxion.core
-│   │   │       ├── BaseTest.java         # Handles test setup and teardown
-│   │   │       ├── ConfigManager.java    # Loads configurations dynamically
-│   │   │       ├── DriverManager.java    # Manages WebDriver instances
-│   │   │       ├── LoggerManager.java    # Provides custom logging
-│   │   │       ├── ElementHandler.java   # Utilities for interacting with web elements
-│   │   │       ├── FluentWaitHandler.java# Handles dynamic waits
-│   │   │       └── Utils.java            # Generic utility methods
-│   │   ├── resources
-│   │       ├── config
-│   │       │   └── application.yaml      # Configuration file
-│   │       └── logging
-│   │           └── log4j2.xml            # Log4j2 configuration
-│   └── test
+│   │   └── java
+│   │       └── com.fluxion.core
+│   │           ├── ConfigManager.java
+│   │           ├── DriverManager.java
+│   │           ├── LoggerManager.java
+│   │           ├── ElementHandler.java
+│   │           └── FluentWaitHandler.java
+│   ├── test
 │       ├── java
-│       │   └── com.fluxion.tests
-│       │       └── ConfigManagerTest.java # Example test for ConfigManager
+│       │   └── com.fluxion
+│       │           ├── core
+│       │           │   └── BaseTest.java
+│       │           ├── runners
+│       │           │   └── CucumberTestRunner.java
+│       │           ├── stepdefinitions
+│       │           │   └── LoginSteps.java
+│       │           ├── hooks
+│       │           │   └── CucumberHooks.java
 │       ├── resources
+│           ├── features
+│           │   └── login.feature
 │           └── testdata
-│               └── test-config.yaml      # Example test data file
-├── pom.xml                                # Maven project file
-├── README.md                              # Project documentation
-└── LICENSE                                # Project license
+│               └── test-config.yaml
+├── pom.xml
+└── README.md
 ```
 
 ---
+
+## Getting Started
+
+### Prerequisites
+
+Ensure the following are installed:
+- Java 8 or higher
+- Maven 3.6+
+- IDE of your choice (e.g., IntelliJ IDEA, Eclipse)
+
+
 
 ## **Installation and Usage**
 
@@ -70,7 +76,7 @@ Fluxion can be hosted on **Maven Central** or **JitPack**. Add the following to 
 
 <dependencies>
     <dependency>
-        <groupId>com.github.yourgithubusername</groupId>
+        <groupId>com.github.shossain786</groupId>
         <artifactId>fluxion-framework</artifactId>
         <version>1.0.0</version>
     </dependency>
@@ -148,6 +154,7 @@ public class ElementUsage {
     }
 }
 ```
+3. For BDD, write feature files in `src/test/resources/features` and step definitions in `com.fluxion.stepdefinitions`.
 
 ---
 
